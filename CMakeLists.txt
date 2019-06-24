@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.10)
+project(2DTools)
+set(CMAKE_C_COMPILER /usr/bin/mpicc)
+set(CMAKE_CXX_COMPILER /usr/bin/mpic++)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_FLAGS "-g -pg -O3 -ftree-vectorize -funroll-loops")
+
+add_executable(2DTools main.cpp Lattice.hh Material.cpp Material.hh Solver.hh CPTSolver.cpp CPTSolver.hh BitOperationsHelper.hh BitOperationsHelper.cpp Lattice.cpp MeanFieldSolver.cpp MeanFieldSolver.hh)
+add_executable(TESTLATTICE Test/test_lattice.cpp Lattice.hh Material.cpp Material.hh Solver.hh CPTSolver.cpp CPTSolver.hh BitOperationsHelper.hh BitOperationsHelper.cpp Lattice.cpp)
+add_executable(TestMaterial Test/test_material.cpp Lattice.hh Material.cpp Material.hh Solver.hh CPTSolver.cpp CPTSolver.hh BitOperationsHelper.hh BitOperationsHelper.cpp Lattice.cpp)
+add_executable(TestSolver Lattice.hh Material.cpp Material.hh Solver.hh CPTSolver.cpp CPTSolver.hh BitOperationsHelper.hh BitOperationsHelper.cpp Test/test_solver.cpp Lattice.cpp)
+add_executable(TestBitwise Lattice.hh Material.cpp Material.hh Solver.hh CPTSolver.cpp CPTSolver.hh BitOperationsHelper.hh BitOperationsHelper.cpp Test/test_bitwise.cpp Lattice.cpp)
+add_executable(Testmanyneighbors Lattice.hh Material.cpp Material.hh Solver.hh CPTSolver.cpp CPTSolver.hh BitOperationsHelper.hh BitOperationsHelper.cpp Lattice.cpp Test/Testmanyneighbors.cpp)
+add_executable(TestMeanField Lattice.hh Material.cpp Material.hh Solver.hh CPTSolver.cpp CPTSolver.hh BitOperationsHelper.hh BitOperationsHelper.cpp Lattice.cpp MeanFieldSolver.cpp MeanFieldSolver.hh Test/testMeanField.cpp)
+add_executable(butterfly Lattice.hh Material.cpp Material.hh Solver.hh CPTSolver.cpp CPTSolver.hh BitOperationsHelper.hh BitOperationsHelper.cpp butterfly.cpp Lattice.cpp)
